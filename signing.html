@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Page Title</title>
+<link rel="stylesheet" href="signing.css">
+</head>
+<style></style>
+<body>
+    <div class="nav">
+        <a href="cosmetics.html"id="hd">Home</a>
+        <a href="signup.html"id="hd">Sign Up</a>
+      </div>
+      <div class="image">
+        <img src="cover2.jpg" class="img">
+        </div>
+    <div class="form">
+        <h1>SIGNUP</h1>
+    </style>
+    <form>
+        <table>
+            <tr>
+                <td> <label> Full Name</label></td>
+                <td><input type="text" id="fn" onchange="validation()" required></td>
+                <td><span id="sfn"></span></td>
+            </tr>
+            <tr>
+                <td><label>Mobile Number</label></td>
+                <td><input type="text" id="mb" onchange="mobile()"required></td>
+                <td><span id="smb"></span></td>
+            </tr>
+            <tr>
+                <td><label>Email</label></td>
+                <td><input type="text" id="em" onchange="email()" required></td>
+                <td><span id="sem"></span></td>
+            </tr>
+            <tr>
+                <td><label>Password</label></td>
+                <td><input type="password" id="ps" onchange="password()" required></td>
+                <td><span id="sps"></span></td>
+             </tr>
+             <tr>
+                <td><label> Confirm Password</label></td>
+                <td><input type="password" id="cps" onchange="cpassword()" required></td>
+                <td><span id="scps"></span></td>
+             </tr>
+             <tr>
+             <td><button>Register</button></td>
+             </tr>
+        </table>
+    </form>
+    <script>
+        function validation(){
+            let f=document.getElementById('fn').value;
+            const regf=/^[A-Z a-z]+$/;
+            if (!regf.test(f)){
+         document.getElementById('sfn').innerHTML="Only Alphabets allowed..";
+         document.getElementById('sfn').style.color="red";
+         document.getElementById('fn').style.borderColor="red";
+            }
+            else{
+        document.getElementById('sfn').innerHTML=" ";
+        document.getElementById('fn').style.borderColor="green";
+    }
+}
+    function mobile(){
+        let m=document.getElementById('mb').value;
+        const regm=/^[0-9]+$/;
+    if(!regm.test(m)){
+        document.getElementById('smb').innerHTML="Only Numbers allowed..";
+        document.getElementById('smb').style.color="red";
+        document.getElementById('mb').style.borderColor="red";
+    }
+    else if(m.length!=10){
+        document.getElementById('smb').innerHTML="Must contain 10 digits..";
+        document.getElementById('smb').style.color="red";
+        document.getElementById('mb').style.borderColor="red";
+    }
+        else{
+        document.getElementById('smb').innerHTML=" ";
+        document.getElementById('mb').style.borderColor="green";
+
+        }
+
+    }
+    function email(){
+        let e=document.getElementById('em').value;
+        const rege=/^[A-Za-z0-9\._%+\-]+@[A-Za-z0-9\.\-]+\.[A-Za-z]{2,}$/;
+    if(!rege.test(e)){
+        document.getElementById('sem').innerHTML="Check Email Format..";
+        document.getElementById('sem').style.color="red";
+        document.getElementById('em').style.borderColor="red";
+    }
+        else{
+        document.getElementById('sem').innerHTML=" ";
+        document.getElementById('em').style.borderColor="green";
+
+        }
+    }
+    function password(){
+        let p=document.getElementById('ps').value;
+        const regp=/^[a-zA-Z0-9!@#$%^&*]{6,16}$/;
+    if(!regp.test(p)){
+        document.getElementById('sps').innerHTML="Password Must contain Alphabets <br>,must contain numbers,<br> symbols such as !@#$%^&*...<br> min of 6 characters, max of 16 characters...";
+        document.getElementById('sps').style.color="red";
+        document.getElementById('ps').style.borderColor="red";
+    }
+        else{
+        document.getElementById('sps').innerHTML=" ";
+        document.getElementById('ps').style.borderColor="green";
+
+        }
+    }
+    function cpassword(){
+        let p=document.getElementById('ps').value;
+        let cp=document.getElementById('cps').value;
+        const regp=/^[a-zA-Z0-9!@#$%^&*]{6,16}$/;
+    if (p!=cp){
+        document.getElementById('scps').innerHTML="Password and Confirm Password must be same...";
+        document.getElementById('scps').style.color="red";
+        document.getElementById('cps').style.borderColor="red";
+    }
+        else{
+        document.getElementById('scps').innerHTML=" ";
+        document.getElementById('cps').style.borderColor="green";
+
+        }
+    }
+</script>
+</body>
+</html>
